@@ -16,6 +16,7 @@ Like most dotfiles, these are a work in progress and are constantly changing.
 - feh
 - flameshot
 - redshift
+- playerctl
 
 Probably missing something above, but that's the gist of it.
 
