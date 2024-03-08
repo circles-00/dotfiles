@@ -6,6 +6,12 @@ vim.keymap.set("n", "<Down>", "<nop>")
 vim.keymap.set("n", "<Left>", "<nop>")
 vim.keymap.set("n", "<Right>", "<nop>")
 
+-- Unbind arrow keys, until I learn hjkl
+vim.keymap.set("i", "<Up>", "<nop>")
+vim.keymap.set("i", "<Down>", "<nop>")
+vim.keymap.set("i", "<Left>", "<nop>")
+vim.keymap.set("i", "<Right>", "<nop>")
+
 -- Unbind ESC key, until I learn C-c
 vim.keymap.set("i", "<Esc>", "<nop>")
 
