@@ -154,3 +154,7 @@ if [ -f "$HOME/"'.webpaas-cli/shell-config.rc' ]; then . "$HOME/"'.webpaas-cli/s
 
 export GOPATH="$HOME/go" # set GOPATH (path to where go is installed)
 export PATH=$PATH:$GOPATH/bin # append GOPATH to PATH
+
+# Lua Path
+export LUAPATH="$HOME/lua-language-server"
+export PATH=$PATH:LUAPATH/bin

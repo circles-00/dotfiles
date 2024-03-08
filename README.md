@@ -17,6 +17,8 @@ Like most dotfiles, these are a work in progress and are constantly changing.
 - flameshot
 - redshift
 - playerctl
+- lsp-language-server
+- go
 
 Probably missing something above, but that's the gist of it.
 

@@ -1,4 +1,14 @@
 vim.g.mapleader = " "
+
+-- Unbind arrow keys, until I learn hjkl
+vim.keymap.set("n", "<Up>", "<nop>")
+vim.keymap.set("n", "<Down>", "<nop>")
+vim.keymap.set("n", "<Left>", "<nop>")
+vim.keymap.set("n", "<Right>", "<nop>")
+
+-- Unbind ESC key, until I learn C-c
+vim.keymap.set("i", "<Esc>", "<nop>")
+
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

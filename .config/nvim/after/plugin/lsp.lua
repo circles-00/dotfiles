@@ -10,16 +10,16 @@ lsp.ensure_installed({
   'gopls',
 })
 
--- Fix Undefined global 'vim'
-lsp.configure('lua-language-server', {
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' }
-      }
-    }
-  }
-})
+-- Fix Undefined global 'vim' (Didn't work for me)
+-- lsp.configure('lua-language-server', {
+--   settings = {
+--     Lua = {
+--       diagnostics = {
+--         globals = { 'vim' }
+--       }
+--     }
+--   }
+-- })
 
 
 local cmp = require('cmp')
