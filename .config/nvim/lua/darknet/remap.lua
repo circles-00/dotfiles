@@ -44,7 +44,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.cmd [[ command! Paste execute 'read !xsel -b' ]]
 -- vim.keymap.set({ "n", "v" }, "<leader>pp", "<cmd>Paste<CR>")
-vim.keymap.set({ "n", "v" }, "<leader>pp", [["+p]])
+vim.keymap.set({ "n", "v" }, "<leader>P", [["+p]])
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
