@@ -8,9 +8,8 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="powerlevel9k/powerlevel9k"
-#ZSH_THEME="gnzh"
-eval "$(starship init zsh)"
+ZSH_THEME="robbyrussell"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -71,9 +70,7 @@ eval "$(starship init zsh)"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    git
-)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -111,12 +108,6 @@ alias utils="nvim /home/darknet/CodingProjects/utils.txt"
 alias vim="nvim"
 alias mak="cd /home/darknet/CodingProjects/MAK-SYSTEM/europa/web"
 
-#CUSTOM
-POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶  "
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-
 # AUTOCOMPLETION PLUGIN
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
@@ -143,14 +134,8 @@ then
 fi
 
 
-# bit
-export PATH="$PATH:/home/darknet/bin"
-# bit end
-
-# BEGIN SNIPPET: OVHcloud Web PaaS CLI configuration
-HOME=${HOME:-'/home/darknet'}
-export PATH="$HOME/"'.webpaas-cli/bin':"$PATH"
-if [ -f "$HOME/"'.webpaas-cli/shell-config.rc' ]; then . "$HOME/"'.webpaas-cli/shell-config.rc'; fi # END SNIPPET
+# bit https://bit.dev/docs
+# export PATH="$PATH:/home/darknet/bin"
 
 export GOPATH="$HOME/go" # set GOPATH (path to where go is installed)
 export PATH=$PATH:$GOPATH/bin # append GOPATH to PATH
