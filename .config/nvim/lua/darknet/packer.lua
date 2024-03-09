@@ -84,16 +84,17 @@ return require('packer').startup(function(use)
 
   use('m4xshen/autoclose.nvim')
   use('windwp/nvim-ts-autotag')
-   use {
-     'laytan/tailwind-sorter.nvim',
-     requires = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
-     config = function()
-       require('tailwind-sorter').setup({
-         on_save_enabled = true,
-       })
-     end,
-     run = 'cd formatter && npm i && npm run build',
-   }
+  use {
+    'laytan/tailwind-sorter.nvim',
+    requires = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('tailwind-sorter').setup({
+        on_save_enabled = true,
+      })
+    end,
+    run = 'cd formatter && npm i && npm run build',
+  }
 
- --  use("stevearc/conform.nvim")
+  use("circles-00/nvim-discord-status")
+  --  use("stevearc/conform.nvim")
 end)
