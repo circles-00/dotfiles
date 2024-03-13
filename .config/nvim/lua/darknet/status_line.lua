@@ -7,7 +7,7 @@ M.filetype = function()
 end
 
 M.git_branch = function()
-  local handle = io.popen("git branch --show-current 2>nul")
+  local handle = io.popen("git branch --show-current 2> /dev/null")
 
   if not handle then
     return ""

@@ -95,7 +95,7 @@ return require('packer').startup(function(use)
     run = 'cd formatter && npm i && npm run build',
   }
 
-  --  use('~/CodingProjects/personal/nvim-discord-status') -- TODO: Change to use the actual repo
+ --    use('~/CodingProjects/personal/nvim-discord-status') -- TODO: Change to use the actual repo
 
   use("circles-00/nvim-discord-status")
   --  use("stevearc/conform.nvim")
