@@ -72,7 +72,7 @@ return require('packer').startup(function(use)
   use("laytan/cloak.nvim")
 
   -- Null-LS
-  use("jose-elias-alvarez/null-ls.nvim")
+  -- use("jose-elias-alvarez/null-ls.nvim")
   use("MunifTanjim/prettier.nvim")
   use("github/copilot.vim")
   use("airblade/vim-gitgutter")
@@ -84,19 +84,19 @@ return require('packer').startup(function(use)
 
   use('m4xshen/autoclose.nvim')
   use('windwp/nvim-ts-autotag')
-  use {
-    'laytan/tailwind-sorter.nvim',
-    requires = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('tailwind-sorter').setup({
-        on_save_enabled = true,
-      })
-    end,
-    run = 'cd formatter && npm i && npm run build',
-  }
+  --use {
+  --  'laytan/tailwind-sorter.nvim',
+  --  requires = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
+  --  config = function()
+  --    require('tailwind-sorter').setup({
+  --      on_save_enabled = true,
+  --    })
+  --  end,
+  --  run = 'cd formatter && npm i && npm run build',
+  --}
 
  --    use('~/CodingProjects/personal/nvim-discord-status') -- TODO: Change to use the actual repo
 
-  use("circles-00/nvim-discord-status")
+ -- use("circles-00/nvim-discord-status")
   --  use("stevearc/conform.nvim")
 end)
