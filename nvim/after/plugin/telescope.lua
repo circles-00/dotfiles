@@ -1,4 +1,19 @@
+local telescope = require('telescope')
 local builtin = require('telescope.builtin')
+
+telescope.setup({
+  pickers = {
+    find_files = {
+      theme = "dropdown",
+      previewer = false,
+    },
+    git_files = {
+      theme = "dropdown",
+      previewer = false,
+    },
+  }
+})
+
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>ps', function()
@@ -6,3 +21,4 @@ vim.keymap.set('n', '<leader>ps', function()
 end)
 vim.keymap.set('n', "<leader>pa", builtin.live_grep, {})
 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
+
