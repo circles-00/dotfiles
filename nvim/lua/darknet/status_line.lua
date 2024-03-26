@@ -15,7 +15,13 @@ M.git_branch = function()
 
   local result = handle:read("*a")
   handle:close()
-  return result:match("%S+")
+  local resultToReturn = result:match("%S+")
+
+  if resultToReturn == nil then
+    return ""
+  end
+
+  return resultToReturn
 end
 
 function statusline()
