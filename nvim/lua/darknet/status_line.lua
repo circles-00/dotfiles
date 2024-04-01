@@ -27,7 +27,7 @@ end
 function statusline()
   return table.concat(
     { "%#StatusLine#"
-    , " %-t %-m %-r"
+    , " %-f %-m %-r"
     , "%="
     , " " .. M.git_branch() .. " "
     , "%2(%c%), %2(%l%):%L "
