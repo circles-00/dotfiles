@@ -15,6 +15,16 @@ vim.keymap.set("i", "<Right>", "<nop>")
 -- Unbind ESC key, until I learn C-c
 vim.keymap.set("i", "<Esc>", "<nop>")
 
+-- Reload all buffers at once
+vim.keymap.set("n", "<leader>ra", function()
+  vim.cmd("bufdo e")
+  print("Reloaded all buffers")
+end)
+vim.keymap.set("n", "<leader>rf", function()
+  vim.cmd("bufdo e")
+  print("! Reloaded all buffers")
+end)
+
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
