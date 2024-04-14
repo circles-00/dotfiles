@@ -80,7 +80,10 @@ local lsp_format_on_save = function(bufnr)
     group = augroup,
     buffer = bufnr,
     callback = function()
-      vim.cmd("EslintFixAll")
+      local ok, result = pcall(
+      vim.cmd,
+      'EslintFixAll'
+      )
       -- vim.lsp.buf.format()
     end,
   })
