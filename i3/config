@@ -245,3 +245,10 @@ for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
 for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
+
+# dunst
+exec_always --no-startup-id pkill dunst; dunst&;
+
+bindsym Control+grave exec --no-startup-id "dunstctl history-pop"
+bindsym Mod4+grave exec --no-startup-id "dunstctl close-all"
+bindsym Mod4+n exec --no-startup-id "dunstctl set-paused toggle"

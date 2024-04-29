@@ -22,9 +22,9 @@ return require('packer').startup(function(use)
   })
 
   use({
-    "folke/trouble.nvim",
+    'folke/trouble.nvim',
     config = function()
-      require("trouble").setup {
+      require('trouble').setup {
         icons = false,
         -- your configuration comes here
         -- or leave it empty to use the default settings
@@ -34,13 +34,13 @@ return require('packer').startup(function(use)
   })
 
 
-  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-  use("nvim-treesitter/playground")
-  use("theprimeagen/harpoon")
-  use("theprimeagen/refactoring.nvim")
-  use("mbbill/undotree")
-  use("tpope/vim-fugitive")
-  use("nvim-treesitter/nvim-treesitter-context");
+  use({ 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" })
+  use('nvim-treesitter/playground')
+  use('theprimeagen/harpoon')
+  use('theprimeagen/refactoring.nvim')
+  use('mbbill/undotree')
+  use('tpope/vim-fugitive')
+  use('nvim-treesitter/nvim-treesitter-context');
 
 
   use {
@@ -67,23 +67,24 @@ return require('packer').startup(function(use)
   }
 
 
-  use("folke/zen-mode.nvim")
-  use("eandrju/cellular-automaton.nvim")
-  use("laytan/cloak.nvim")
+  use('folke/zen-mode.nvim')
+  use('eandrju/cellular-automaton.nvim')
+  use('laytan/cloak.nvim')
 
   -- Null-LS
-  -- use("jose-elias-alvarez/null-ls.nvim")
-  use("MunifTanjim/prettier.nvim")
-  use("github/copilot.vim")
-  use("airblade/vim-gitgutter")
-  use("f-person/git-blame.nvim")
-  use { 'catppuccin/nvim', as = "catppuccin" }
+  -- use('jose-elias-alvarez/null-ls.nvim')
+  use('MunifTanjim/prettier.nvim')
+  -- use('github/copilot.vim')
+  use('airblade/vim-gitgutter')
+  use('f-person/git-blame.nvim')
+  use { 'catppuccin/nvim', as = 'catppuccin' }
   use('projekt0n/github-nvim-theme')
   use('ThePrimeagen/vim-be-good')
 
 
   use('m4xshen/autoclose.nvim')
   use('windwp/nvim-ts-autotag')
+
   --use {
   --  'laytan/tailwind-sorter.nvim',
   --  requires = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
@@ -97,6 +98,6 @@ return require('packer').startup(function(use)
 
  --    use('~/CodingProjects/personal/nvim-discord-status') -- TODO: Change to use the actual repo
 
- -- use("circles-00/nvim-discord-status")
-  --  use("stevearc/conform.nvim")
+ -- use('circles-00/nvim-discord-status')
+  --  use('stevearc/conform.nvim')
 end)

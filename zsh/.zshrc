@@ -101,6 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias priv="cd /home/darknet/CodingProjects/personal/generate-private-contributions && yarn start ~/CodingProjects/work 2023-11-01 2024-12-31 \"Nikola\" /home/darknet/CodingProjects/personal/private-contributions && cd ../private-contributions && git status && git push"
 alias vpn="cd /home/darknet/CodingProjects/MAK-SYSTEM/vpn && sudo openvpn --config ./client.ovpn --auth-user-pass ./creds.txt"
+alias vpn2="cd /home/darknet/CodingProjects/MAK-SYSTEM/vpn && openvpn3 session-start --config ./ate.ovpn"
 alias work="cd /home/darknet/CodingProjects/work"
 alias personal="cd /home/darknet/CodingProjects/personal"
 alias projects="cd /home/darknet/CodingProjects"
