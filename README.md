@@ -30,3 +30,13 @@ This goes to `~/.local/scripts/typescript-barrel-generator.js`
 - `tmux-sessionizer` - Generates a tmux session with a window for each file in a directory
 
 This goes to `~/.local/bin/tmux-sessionizer `
+
+# Eslint
+Since configuring eslint is always a pain in the ass, this will save your life: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint
+
+Ensure above is installed and set up.
+Or more neat:
+
+```shell
+npm i -g vscode-langservers-extracted
+```

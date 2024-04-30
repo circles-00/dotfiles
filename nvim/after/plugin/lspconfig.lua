@@ -11,3 +11,5 @@ lspconfig.lua_ls.setup{
   }
 }
 
+
+lspconfig.eslint.setup{}
