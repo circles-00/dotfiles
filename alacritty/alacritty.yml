@@ -2,4 +2,6 @@ import:
  - ~/.config/alacritty/themes/themes/theprimeagen.yaml
 window:
   opacity: 1.0
+font:
+  size: 15.0
 
