@@ -32,6 +32,7 @@ return {
       'pyright',
       'clangd',
       'gopls',
+      'html',
     })
 
     local cmp = require('cmp')
@@ -96,7 +97,9 @@ return {
           vim.cmd,
           'EslintFixAll'
           )
-          -- vim.lsp.buf.format()
+          if ok == false then
+           vim.lsp.buf.format()
+          end
         end,
       })
     end
