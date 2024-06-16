@@ -145,6 +145,12 @@ export PATH=$PATH:$GOPATH/bin # append GOPATH to PATH
 export LUAPATH="$HOME/lua-language-server"
 export PATH=$PATH:LUAPATH/bin
 
+# fzf for zsh
+source <(fzf --zsh)
+HISTFILE=~/.zsh_history
+HISTSIZE=30000
+setopt appendhistory
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/darknet/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -160,3 +166,5 @@ __conda_setup="$('/home/darknet/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/
 #unset __conda_setup
 ## <<< conda initialize <<<
 ##
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

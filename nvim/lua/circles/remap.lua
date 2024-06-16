@@ -90,9 +90,9 @@ vim.keymap.set("n", "<leader>ts", function ()
   vim.cmd("!node ~/.local/scripts/typescript-barrel-generator.js " .. currentDirectoryPath)
 end)
 
-vim.keymap.set("n", "<leader><leader>", function()
-  vim.cmd("so")
-end)
-
-
 vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+
+-- buffers
+vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+vim.keymap.set("n", "<leader>bd", "<cmd>:bd<cr>", { desc = "Delete Buffer" })
