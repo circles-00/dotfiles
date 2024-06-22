@@ -171,3 +171,5 @@ __conda_setup="$('/home/darknet/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/
 
 # Nvim PATH
 export PATH="$PATH:/opt/nvim-linux64/bin"
+
+export TERM=xterm-256color
