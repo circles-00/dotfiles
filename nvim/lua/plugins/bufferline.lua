@@ -8,7 +8,37 @@ return {
       options = {
         themable = true,
         diagnostics = "nvim_lsp",
-        color_icons = true
+        color_icons = true,
+        sort_by = function(buffer_a, buffer_b)
+          local a = 1
+          local b = 1
+
+          local marks = require('harpoon'):list()
+
+          for _, mark in ipairs(marks.items) do
+            if vim.fn.bufname(buffer_a.id):find(mark.value) then
+              a = 0
+              break
+            elseif vim.fn.bufname(buffer_b.id):find(mark.value) then
+              b = 0
+              break
+            end
+          end
+          return a < b
+        end,
+        numbers = function(number_opts)
+          local harpoon = require("harpoon")
+          local buf_name = vim.api.nvim_buf_get_name(number_opts.id)
+          local harpoon_list = harpoon:list()
+          local harpoon_mark
+          for index, item in ipairs(harpoon_list.items) do
+            if buf_name:find(item.value) then
+              harpoon_mark = index
+            end
+          end
+
+          return harpoon_mark
+        end,
       }
     })
   end
