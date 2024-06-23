@@ -9,6 +9,15 @@ return {
         themable = true,
         diagnostics = "nvim_lsp",
         color_icons = true,
+        custom_filter = function(buf_number)
+          local filetype = vim.bo[buf_number].filetype
+          if filetype == "" then
+            return false
+          end
+
+          return true
+        end,
+
         sort_by = function(buffer_a, buffer_b)
           local a = 1
           local b = 1
@@ -26,6 +35,7 @@ return {
           end
           return a < b
         end,
+
         numbers = function(number_opts)
           local harpoon = require("harpoon")
           local buf_name = vim.api.nvim_buf_get_name(number_opts.id)
