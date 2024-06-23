@@ -250,3 +250,6 @@ for_window [title="^Steam Keyboard$"] floating enable
 bindsym Control+grave exec --no-startup-id "dunstctl history-pop"
 bindsym Mod4+grave exec --no-startup-id "dunstctl close-all"
 bindsym Mod4+n exec --no-startup-id "dunstctl set-paused toggle"
+
+# Default browser
+exec --no-startup-id xdg-settings set default-web-browser "firefox-developer.desktop"
