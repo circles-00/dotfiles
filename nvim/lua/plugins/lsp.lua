@@ -61,7 +61,7 @@ return {
       }
     })
 
-    lsp.on_attach(function(client, bufnr)
+    lsp.on_attach(function(_, bufnr)
       local opts = { buffer = bufnr, remap = false }
 
       -- if client.name == "tsserver" then
@@ -93,7 +93,7 @@ return {
         group = augroup,
         buffer = bufnr,
         callback = function()
-          local ok, result = pcall(
+          local ok, _  = pcall(
           vim.cmd,
           'EslintFixAll'
           )
@@ -104,7 +104,10 @@ return {
       })
     end
 
+    -- Check this https://www.reddit.com/r/neovim/comments/1anr822/comment/kzymzne/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
     lspconfig.tsserver.setup({
+      capabilities = capabilities,
       on_attach = function (_, bufnr)
         lsp_format_on_save(bufnr)
       end
