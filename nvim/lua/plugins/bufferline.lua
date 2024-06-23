@@ -34,6 +34,7 @@ return {
           for index, item in ipairs(harpoon_list.items) do
             if buf_name:find(item.value) then
               harpoon_mark = index
+              break
             end
           end
 
