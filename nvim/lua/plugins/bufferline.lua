@@ -25,10 +25,10 @@ return {
           local marks = require('harpoon'):list()
 
           for _, mark in ipairs(marks.items) do
-            if vim.fn.bufname(buffer_a.id):find(mark.value) then
+            if vim.fn.bufname(buffer_a.id) == mark.value then
               a = 0
               break
-            elseif vim.fn.bufname(buffer_b.id):find(mark.value) then
+            elseif vim.fn.bufname(buffer_b.id) == mark.value then
               b = 0
               break
             end
@@ -38,11 +38,11 @@ return {
 
         numbers = function(number_opts)
           local harpoon = require("harpoon")
-          local buf_name = vim.api.nvim_buf_get_name(number_opts.id)
+          local buf_name = vim.fn.bufname(number_opts.id)
           local harpoon_list = harpoon:list()
           local harpoon_mark
           for index, item in ipairs(harpoon_list.items) do
-            if buf_name:find(item.value) then
+            if buf_name == item.value then
               harpoon_mark = index
               break
             end
