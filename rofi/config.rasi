@@ -14,6 +14,7 @@ configuration{
     //adding vim keybindings
     kb-row-up: "Up,Control+p";
     kb-row-down: "Down,Control+n";
+    kb-cancel: "Control+c";
 
     kb-accept-entry: "Control+z,Control+y,Return,KP_Enter";
 }
