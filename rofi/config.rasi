@@ -1,0 +1,20 @@
+configuration{
+    modi: ["drun", "window", "run"];
+    icon-theme: "Papirus-Dark";
+    show-icons: true;
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    sidebar-mode: false;
+    display-drun: " ";
+    display-run: " ";
+    display-window: " ";
+
+    //adding vim keybindings
+    kb-row-up: "Up,Control+p";
+    kb-row-down: "Down,Control+n";
+
+    kb-accept-entry: "Control+z,Control+y,Return,KP_Enter";
+}
+@import "./rounded-purple-dark.rasi"
