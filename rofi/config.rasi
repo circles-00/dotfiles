@@ -7,8 +7,8 @@ configuration{
     location: 0;
     disable-history: false;
     sidebar-mode: false;
-    display-drun: " ";
-    display-run: " ";
+    display-drun: "🔍 ";
+    display-run: "🔍 ";
     display-window: " ";
 
     //adding vim keybindings
@@ -16,6 +16,6 @@ configuration{
     kb-row-down: "Down,Control+n";
     kb-cancel: "Control+c";
 
-    kb-accept-entry: "Control+z,Control+y,Return,KP_Enter";
+    kb-accept-entry: "Return";
 }
 @import "./rounded-purple-dark.rasi"
