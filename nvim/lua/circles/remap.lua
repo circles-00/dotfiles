@@ -21,7 +21,7 @@ vim.keymap.set("n", "<leader>ra", function()
   print("Reloaded all buffers")
 end)
 vim.keymap.set("n", "<leader>rf", function()
-  vim.cmd("bufdo e")
+  vim.cmd("bufdo e!")
   print("! Reloaded all buffers")
 end)
 

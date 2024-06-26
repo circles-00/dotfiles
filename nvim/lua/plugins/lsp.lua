@@ -33,6 +33,7 @@ return {
       'clangd',
       'gopls',
       'html',
+      'clojure_lsp'
     })
 
     local cmp = require('cmp')
@@ -153,6 +154,8 @@ return {
         })
       end,
     })
+
+    lspconfig.clojure_lsp.setup({})
   end
 }
 

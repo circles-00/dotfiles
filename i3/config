@@ -254,3 +254,8 @@ bindsym Mod4+n exec --no-startup-id "dunstctl set-paused toggle"
 
 # Default browser
 exec --no-startup-id xdg-settings set default-web-browser "firefox-developer.desktop"
+
+# Swap monitor for active workspace
+bindsym $mod+Ctrl+Up move workspace to output up
+bindsym $mod+Ctrl+Down move workspace to output down
+
