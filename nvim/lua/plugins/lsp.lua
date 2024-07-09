@@ -17,7 +17,6 @@ return {
 
     -- Snippets
     { 'L3MON4D3/LuaSnip' },
-    { 'rafamadriz/friendly-snippets' },
   },
   config = function ()
     local lsp = require("lsp-zero")
@@ -36,7 +35,23 @@ return {
       'clojure_lsp'
     })
 
+    local luasnip = require("luasnip")
+
+    require("luasnip.loaders.from_vscode").lazy_load()
+    require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/CodingProjects/personal/dotfiles/nvim/snippets/" })
+
     local cmp = require('cmp')
+    cmp.setup {
+      snippet = {
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
+      },
+      sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+      }),
+    }
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
     local cmp_mappings = lsp.defaults.cmp_mappings({
       ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
@@ -99,7 +114,7 @@ return {
           'EslintFixAll'
           )
           if ok == false then
-           vim.lsp.buf.format()
+            vim.lsp.buf.format()
           end
         end,
       })

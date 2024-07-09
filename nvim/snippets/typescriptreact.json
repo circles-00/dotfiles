@@ -1,0 +1,51 @@
+{
+  "Print to console": {
+    "prefix": "clg",
+    "body": ["console.log('$1');", "$2"],
+    "description": "Log output to console"
+  },
+  "Generate React Functional Component": {
+    "prefix": "rfc",
+    "body": [
+      "import { type FC } from 'react'",
+      "",
+      "interface I$1 {}",
+      "",
+      "export const $1: FC<I$1> = () => {",
+        "  return (",
+          "    <>",
+          "      $2",
+          "    </>",
+          "  )",
+          "}"
+    ],
+    "description": "Generate React Functional Component"
+  },
+  "Generate React Styled Component WithoutTheme": {
+    "prefix": "rsc",
+    "body": ["import { styled } from ''", "", "export const $1 = styled()({})"],
+    "description": "Generate React MUI Styled Component without theme instance"
+  },
+  "Generate React Styled Component With Theme": {
+    "prefix": "rsct",
+    "body": ["import { styled } from '$2'", "", "export const $1 = styled()(({ theme }) => ({}))"],
+    "description": "Generate React MUI Styled Component with theme instance"
+  },
+  "Generate NextJS Page Component": {
+    "prefix": "nxc",
+    "body": [
+      "import { type NextPage } from 'next'",
+      "",
+      "const $1: NextPage = () => {",
+        "  return (",
+          "    <>",
+          "      $2",
+          "    </>",
+          "  )",
+          "}",
+          "",
+          "export default $1"
+    ],
+    "description": "Generate NextJS Page Component"
+  }
+}
