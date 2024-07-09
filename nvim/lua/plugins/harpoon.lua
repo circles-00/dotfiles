@@ -5,7 +5,14 @@ return {
   config = function ()
     local harpoon = require("harpoon")
 
-    harpoon:setup()
+    harpoon:setup({
+      menu = {
+        width = vim.api.nvim_win_get_width(0) - 4,
+      },
+      settings = {
+        save_on_toggle = true,
+      },
+    })
 
     -- setup telescope
     local conf = require("telescope.config").values
@@ -37,8 +44,8 @@ return {
 
     -- Have Ctrl - 1 to Ctrl - 5 for files from 6 to 10
     for _, idx in ipairs { 1, 2, 3, 4, 5 } do
-      vim.keymap.set("n", string.format("<C-%d>", 5 + idx), function()
-        harpoon:list():select(idx)
+      vim.keymap.set("n", "<C-" .. idx .. ">", function()
+        harpoon:list():select(idx + 5)
       end)
     end
   end
