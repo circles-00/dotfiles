@@ -40,10 +40,14 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl --player=spotify play-pause
-bindsym XF86AudioPause exec playerctl --player=spotify play-pause
-bindsym XF86AudioNext exec playerctl --player=spotify next
-bindsym XF86AudioPrev exec playerctl --player=spotify previous
+# bindsym XF86AudioPlay exec playerctl --player=spotify play-pause
+# bindsym XF86AudioPause exec playerctl --player=spotify play-pause
+# bindsym XF86AudioNext exec playerctl --player=spotify next
+# bindsym XF86AudioPrev exec playerctl --player=spotify previous
+bindsym XF86AudioPlay exec spt playback --toggle
+bindsym XF86AudioPause exec spt playback --toggle
+bindsym XF86AudioNext exec spt playback --next
+bindsym XF86AudioPrev exec spt playback --previous
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position

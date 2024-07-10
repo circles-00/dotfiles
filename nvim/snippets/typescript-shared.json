@@ -3,5 +3,12 @@
     "prefix": "clg",
     "body": ["console.log('$1', $1)"],
     "description": "Log output to console"
+  },
+  "Make a hook": {
+    "prefix": "use",
+    "body": [
+      "export const use$1 = () => {",
+          "}"
+    ]
   }
 }

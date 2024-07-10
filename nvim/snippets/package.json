@@ -12,6 +12,10 @@
 			{
 				"language": "typescript",
 				"path": "./typescript.json"
+			},
+			{
+				"language": ["typescript", "typescriptreact"],
+				"path": "./typescript-shared.json"
 			}
 		]
 	}
