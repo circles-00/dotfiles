@@ -16,19 +16,3 @@ vim.opt.rtp:prepend(lazypath)
 require("circles")
 require('lazy').setup('plugins')
 
--- Fix Undefined global vim
-local lspconfig = require('lspconfig')
-
-lspconfig.lua_ls.setup{
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' }
-      }
-    }
-  }
-}
-
-
-lspconfig.eslint.setup{}
-
