@@ -256,7 +256,7 @@ for_window [title="^Steam Keyboard$"] floating enable
 # dunst
 bindsym Control+grave exec --no-startup-id "dunstctl history-pop"
 bindsym Mod4+grave exec --no-startup-id "dunstctl close-all"
-bindsym Mod4+n exec --no-startup-id "dunstctl set-paused toggle"
+bindsym Mod4+n exec --no-startup-id "~/.config/i3/notifications-toggle.sh"
 
 # Default browser
 exec --no-startup-id xdg-settings set default-web-browser "firefox-developer.desktop"
