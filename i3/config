@@ -40,14 +40,16 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 
 # Media player controls
-# bindsym XF86AudioPlay exec playerctl --player=spotify play-pause
-# bindsym XF86AudioPause exec playerctl --player=spotify play-pause
-# bindsym XF86AudioNext exec playerctl --player=spotify next
-# bindsym XF86AudioPrev exec playerctl --player=spotify previous
-bindsym XF86AudioPlay exec spt playback --toggle
-bindsym XF86AudioPause exec spt playback --toggle
-bindsym XF86AudioNext exec spt playback --next
-bindsym XF86AudioPrev exec spt playback --previous
+# set $PLAYER spotifyd
+# bindsym XF86AudioPlay exec playerctl --player=$PLAYER play-pause
+# bindsym XF86AudioPause exec playerctl --player=$PLAYER play-pause
+# bindsym XF86AudioNext exec playerctl --player=$PLAYER next
+# bindsym XF86AudioPrev exec playerctl --player=$PLAYER previous
+
+bindsym XF86AudioPlay exec ~/.config/i3/spotify-controls.sh PlayPause
+bindsym XF86AudioPause exec ~/.config/i3/spotify-controls.sh PlayPause
+bindsym XF86AudioNext exec ~/.config/i3/spotify-controls.sh Next
+bindsym XF86AudioPrev exec ~/.config/i3/spotify-controls.sh Previous
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
