@@ -263,3 +263,4 @@ exec --no-startup-id xdg-settings set default-web-browser "firefox-developer.des
 bindsym $mod+Ctrl+Up move workspace to output up
 bindsym $mod+Ctrl+Down move workspace to output down
 
+exec --no-startup-id ~/.config/i3/i3_startup_layout
