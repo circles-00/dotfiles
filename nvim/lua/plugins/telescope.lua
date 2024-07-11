@@ -1,7 +1,13 @@
 return {
   'nvim-telescope/telescope.nvim', tag = '0.1.8',
   -- or                            , branch = '0.1.x',
-  dependencies = { { 'nvim-lua/plenary.nvim' }, {"smartpde/telescope-recent-files"} },
+  dependencies = {
+    { 'nvim-lua/plenary.nvim' },
+    {
+      "isak102/telescope-git-file-history.nvim",
+      dependencies = { "tpope/vim-fugitive" }
+    }
+  },
   config = function ()
     local telescope = require('telescope')
     local builtin = require('telescope.builtin')
@@ -17,17 +23,10 @@ return {
           previewer = false,
         },
       },
-      extensions = {
-        recent_files = {
-          only_cwd = true
-        }
-      }
     })
 
-    telescope.load_extension("recent_files")
-    vim.api.nvim_set_keymap("n", "<Leader><Leader>",
-    [[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
-    {noremap = true, silent = true})
+    telescope.load_extension("git_file_history")
+    vim.keymap.set('n', '<leader>gh', telescope.extensions.git_file_history.git_file_history, {})
 
     vim.keymap.set('n', '<leader>pf', builtin.git_files, {})
     vim.keymap.set('n', '<C-p>', builtin.find_files, {})
