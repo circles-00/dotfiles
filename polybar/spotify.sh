@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 main() {
   PLAYER="spotifyd"
@@ -11,6 +11,14 @@ main() {
   cmd="org.freedesktop.DBus.Properties.Get"
   domain="org.mpris.MediaPlayer2"
   path="/org/mpris/MediaPlayer2"
+
+  player_status=$(dbus-send --print-reply --dest=${player_dbus} \
+    /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:${domain}.Player string:PlaybackStatus | awk '{print $3}' | tr -d '"')
+
+
+  if [[ $player_status != *'Playing'* ]]; then
+    echo ""; exit
+  fi
 
   meta=$(dbus-send --print-reply --dest=${player_dbus} \
     /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:${domain}.Player string:Metadata)
