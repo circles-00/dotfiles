@@ -18,12 +18,14 @@ return {
 
     lualine.setup({
       sections = {
+        -- This will hide branch, it's not needed since we have the current branch in tmux
+        lualine_b = {},
         lualine_c = {
           {
             'filename',
             cond = conditions.buffer_not_empty,
             color = { fg = colors.foreground, gui = 'bold' },
-            path = 1
+            path = 4
           }
         },
       },
