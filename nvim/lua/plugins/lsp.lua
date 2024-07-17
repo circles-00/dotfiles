@@ -1,4 +1,4 @@
-return {
+return{
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v1.x',
   dependencies = {
@@ -99,8 +99,9 @@ return {
 
     lsp.setup()
 
+    -- TODO: Re-Enable if you ever delete errors.lua
     vim.diagnostic.config({
-      virtual_text = true
+      virtual_text = false
     })
 
     local augroup = vim.api.nvim_create_augroup('LspFormatting', {})

@@ -6,13 +6,24 @@ return {
 
     local theme = require'lualine.themes.tokyonight'
 
+    local colors = {
+      foreground = "#7dcfff"
+    }
+
+    local conditions = {
+      buffer_not_empty = function()
+        return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
+      end,
+    }
+
     lualine.setup({
       sections = {
-        lualine_x = {
+        lualine_c = {
           {
-            require("noice").api.statusline.mode.get,
-            cond = require("noice").api.statusline.mode.has,
-            color = { fg = "#ff9e64" },
+            'filename',
+            cond = conditions.buffer_not_empty,
+            color = { fg = colors.foreground, gui = 'bold' },
+            path = 1
           }
         },
       },
