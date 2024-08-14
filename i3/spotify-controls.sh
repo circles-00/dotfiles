@@ -5,7 +5,7 @@ then
 fi
 
 
-PLAYER="spotifyd"
+PLAYER="spotify"
 player_dbus=$(dbus-send --print-reply --dest=org.freedesktop.DBus  /org/freedesktop/DBus org.freedesktop.DBus.ListNames | grep $PLAYER | awk '{print $2}' | tr -d '"')
 
 if ! pgrep -x $PLAYER >/dev/null; then
