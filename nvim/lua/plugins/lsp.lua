@@ -25,7 +25,7 @@ return{
     lsp.preset("recommended")
 
     lsp.ensure_installed({
-      'tsserver',
+      'ts_ls',
       'rust_analyzer',
       'tailwindcss',
       'pyright',
@@ -124,7 +124,7 @@ return{
 
     -- Check this https://www.reddit.com/r/neovim/comments/1anr822/comment/kzymzne/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    lspconfig.tsserver.setup({
+    lspconfig.ts_ls.setup({
       capabilities = capabilities,
       on_attach = function (_, bufnr)
         lsp_format_on_save(bufnr)

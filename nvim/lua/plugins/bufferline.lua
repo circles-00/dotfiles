@@ -18,23 +18,23 @@ return {
           return true
         end,
 
-        sort_by = function(buffer_a, buffer_b)
-          local a = 1
-          local b = 1
-
-          local marks = require('harpoon'):list()
-
-          for _, mark in ipairs(marks.items) do
-            if vim.fn.bufname(buffer_a.id) == mark.value then
-              a = 0
-              break
-            elseif vim.fn.bufname(buffer_b.id) == mark.value then
-              b = 0
-              break
-            end
-          end
-          return a < b
-        end,
+        -- sort_by = function(buffer_a, buffer_b)
+        --   local a = 1
+        --   local b = 1
+        --
+        --   local marks = require('harpoon'):list()
+        --
+        --   for _, mark in ipairs(marks.items) do
+        --     if vim.fn.bufname(buffer_a.id) == mark.value then
+        --       a = 0
+        --       break
+        --     elseif vim.fn.bufname(buffer_b.id) == mark.value then
+        --       b = 0
+        --       break
+        --     end
+        --   end
+        --   return a < b
+        -- end,
 
         numbers = function(number_opts)
           local harpoon = require("harpoon")
