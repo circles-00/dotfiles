@@ -1,6 +1,6 @@
 require("circles.set")
 require("circles.remap")
-local statusLine = require("circles.status_line")
+-- local statusLine = require("circles.status_line")
 
 -- DO NOT INCLUDE THIS
 -- vim.opt.rtp:append("~/personal/streamer-tools")
@@ -37,5 +37,5 @@ vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
-statusLine.setup()
+-- statusLine.setup()
 
