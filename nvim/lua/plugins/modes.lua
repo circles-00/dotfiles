@@ -3,7 +3,7 @@ return {
   tag = 'v0.2.0',
   config = function ()
     require('modes').setup({
-      set_cursor = false
+      set_cursor = true
     })
   end
 }

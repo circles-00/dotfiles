@@ -1,0 +1,13 @@
+[user]
+  email = nkrezeski1@gmail.com
+  name = Nikola Krezeski
+[core]
+  editor = nvim
+[alias]
+  aa = add .
+  s = status -sb
+  c = commit -v
+  cb = checkout
+  unstage = restore --staged
+  p = pull
+  P = push

@@ -224,6 +224,7 @@ bindsym Print exec --no-startup-id flameshot gui
 exec_always --no-startup-id "dunst&"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id flameshot
+bindsym $mod+p exec polybar-msg cmd toggle
 
 # Terminal transparency
 exec_always --no-startup-id picom &

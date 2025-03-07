@@ -33,7 +33,8 @@ return{
       'gopls',
       'html',
       'clojure_lsp',
-      'lua_ls'
+      'lua_ls',
+      'terraformls',
     })
 
     local luasnip = require("luasnip")
@@ -178,6 +179,8 @@ return{
     lspconfig.clojure_lsp.setup({
       filetypes =  { "clojure", "edn" }
     })
+
+    lspconfig.terraformls.setup({})
 
     lspconfig.lua_ls.setup {
       on_init = function(client)

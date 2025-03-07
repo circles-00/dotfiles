@@ -78,7 +78,7 @@ func main() {
 	monitors := setupMonitors()
 
 	cmds := [][]string{
-		{"i3-msg", "workspace 1; exec google-chrome;"},
+		{"i3-msg", "workspace 1; exec brave;"},
 		{"i3-msg", "workspace 2; exec kitty tmux;"},
 		{"i3-msg", "workspace 3; exec spotify;"},
 		{"i3-msg", "workspace 4; exec discord;"},

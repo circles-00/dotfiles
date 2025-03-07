@@ -99,7 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias priv="cd /home/darknet/CodingProjects/personal/generate-private-contributions && yarn start ~/CodingProjects/work 2023-11-01 2024-12-31 \"Nikola\" /home/darknet/CodingProjects/personal/private-contributions && cd ../private-contributions && git status && git push"
+alias priv="cd /home/darknet/CodingProjects/personal/generate-private-contributions && yarn start ~/CodingProjects/work 2025-01-01 2025-12-31 \"Krezeski\" /home/darknet/CodingProjects/personal/private-contributions && cd ../private-contributions && git status && git push"
 alias vpn="cd /home/darknet/CodingProjects/MAK-SYSTEM/vpn && sudo openvpn --config ./client.ovpn --auth-user-pass ./creds.txt"
 alias vpn2="cd /home/darknet/CodingProjects/MAK-SYSTEM/vpn && openvpn3 session-start --config ./ate.ovpn"
 alias work="cd /home/darknet/CodingProjects/work"
@@ -108,6 +108,7 @@ alias projects="cd /home/darknet/CodingProjects"
 alias utils="nvim /home/darknet/CodingProjects/utils.txt"
 alias vim="nvim"
 alias mak="cd /home/darknet/CodingProjects/MAK-SYSTEM/europa/web"
+alias g="git"
 
 # AUTOCOMPLETION PLUGIN
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -173,7 +174,12 @@ __conda_setup="$('/home/darknet/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
 export TERM=xterm-256color
+export BROWSER='/snap/bin/brave'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
+
