@@ -11,3 +11,5 @@
   unstage = restore --staged
   p = pull
   P = push
+[init]
+	defaultBranch = main

@@ -81,8 +81,8 @@ func main() {
 		{"i3-msg", "workspace 1; exec brave;"},
 		{"i3-msg", "workspace 2; exec kitty tmux;"},
 		{"i3-msg", "workspace 3; exec spotify;"},
-		{"i3-msg", "workspace 4; exec discord;"},
-		{"i3-msg", "workspace 4; exec skype;"},
+		{"i3-msg", "workspace 4; exec /var/lib/flatpak/exports/bin/com.discordapp.Discord;"},
+		{"i3-msg", "workspace 4; exec cliq;"},
 	}
 
 	for _, cmd := range cmds {
@@ -106,7 +106,7 @@ func main() {
 	}
 
 	time.Sleep(3 * time.Second)
-	i3ReassignWorkspacesDownCmd := exec.Command("i3-msg", fmt.Sprintf("workspace 3, move workspace to output %s; workspace 4, move workspace to output %s;", monitors.monitor1, monitors.monitor1))
+	i3ReassignWorkspacesDownCmd := exec.Command("i3-msg", fmt.Sprintf("workspace 3, move workspace to output %s; workspace 4, move workspace to output %s;", monitors.monitor2, monitors.monitor2))
 	i3ReassignWorkspacesUpCmd := exec.Command("i3-msg", fmt.Sprintf("workspace 1, move workspace to output %s; workspace 2, move workspace to output %s;", monitors.monitor2, monitors.monitor2))
 
 	i3ReassignWorkspacesUpCmd.Run()

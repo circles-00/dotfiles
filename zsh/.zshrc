@@ -183,3 +183,19 @@ export SDKMAN_DIR="$HOME/.sdkman"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
+### SSH CONFIGURATION
+sshf() {
+  local IGNORE_WORDS=("github" "gitlab" "bitbucket")
+
+  local host=$(awk '/^Host / && !/\*/ {print $2}' ~/.ssh/config \
+    | while read -r h; do
+        skip=false
+        for word in "${IGNORE_WORDS[@]}"; do
+          [[ "$h" == *"$word"* ]] && skip=true && break
+        done
+        $skip || echo "$h"
+      done \
+    | fzf --prompt="SSH > " --height=20 --border)
+
+  [[ -n "$host" ]] && ssh "$host"
+}
