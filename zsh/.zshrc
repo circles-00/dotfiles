@@ -199,3 +199,18 @@ sshf() {
 
   [[ -n "$host" ]] && ssh "$host"
 }
+
+
+# CURSOR SHAPE
+# Make sure this is same setting as in the terminal emulator configuration
+# Block:
+## - non-blinking: \e[2 q
+## - blinking: \e[1 q
+
+# Bar:
+## - non-blinking: \e[6 q
+## - blinking: \e[5 q
+if [[ -n "$TMUX" ]]; then
+  print -n '\e[5 q'
+fi
+
