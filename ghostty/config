@@ -1,0 +1,21 @@
+# Tokyo Night color scheme for Ghostty terminal emulator
+foreground = a9b1d6
+background = 1a1b26
+
+background-opacity = 0.87
+
+cursor-color = c0caf5
+cursor-text = 1a1b26
+
+selection-background = 28344a
+# selection-foreground = 000000
+
+font-size = 18.0
+
+window-decoration = none
+
+gtk-tabs-location = bottom
+gtk-wide-tabs = false
+
+gtk-custom-css = ~/.config/ghostty/gtk.css
+

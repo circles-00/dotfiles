@@ -26,7 +26,21 @@ return {
     priority = 1000,
     lazy = false,
     config = function()
-      vim.cmd('colorscheme tokyonight-night')
+      require("tokyonight").setup({
+        transparent = true,
+        styles = {
+          sidebars = "transparent",
+          floats = "transparent",
+        },
+      })
+
+      -- Load the colorscheme
+      vim.cmd.colorscheme("tokyonight")
+
+      -- Optional: clean up extra background highlights
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
     end,
   }
 
