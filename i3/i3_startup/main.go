@@ -74,12 +74,23 @@ func setupMonitors() Monitors {
 	}
 }
 
+func setupMTU() {
+	mtuCmd := exec.Command("sudo", "ip", "link", "set", "dev", "wlp0s20f3", "mtu", "1350")
+
+	mtuErr := mtuCmd.Run()
+
+	if mtuErr != nil {
+		panic("MTU CANNOT BE SET")
+	}
+}
+
 func main() {
 	monitors := setupMonitors()
+	setupMTU()
 
 	cmds := [][]string{
 		{"i3-msg", "workspace 1; exec brave;"},
-		{"i3-msg", "workspace 2; exec kitty tmux;"},
+		{"i3-msg", "workspace 2; exec ghostty;"},
 		{"i3-msg", "workspace 3; exec spotify;"},
 		{"i3-msg", "workspace 4; exec /var/lib/flatpak/exports/bin/com.discordapp.Discord;"},
 		{"i3-msg", "workspace 4; exec cliq;"},
@@ -93,7 +104,7 @@ func main() {
 			panic("ERROR SETTING I3 WORKSPACES")
 		}
 
-		if strings.Contains(cmd[1], "discord") {
+		if strings.Contains(cmd[1], "discord") || strings.Contains(cmd[1], "brave") {
 			time.Sleep(3 * time.Second)
 			continue
 		}
