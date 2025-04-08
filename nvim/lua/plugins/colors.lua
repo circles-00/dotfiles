@@ -1,27 +1,35 @@
---return {
---  'rose-pine/neovim',
---  name = 'rose-pine',
---  config = function()
---    vim.cmd('colorscheme rose-pine')
---
---    vim.api.nvim_set_hl(0, "Normal", { bg ="none"})
---    vim.api.nvim_set_hl(0, "NormalFloat", { bg ="none"})
---  end
---}
+local make_bg_transparent = function()
+  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+end
 
---return {
---  "catppuccin/nvim",
---  name = "catppuccin",
---  priority = 1000,
---  lazy = false,
---  config = function()
---    vim.cmd('colorscheme catppuccin-mocha')
---  end,
---
---}
---
 
-return {
+local rosepine = {
+  'rose-pine/neovim',
+  name = 'rose-pine',
+  config = function()
+    vim.cmd('colorscheme rose-pine')
+
+    make_bg_transparent()
+  end
+}
+
+local catppuccin =  {
+  "catppuccin/nvim",
+  name = "catppuccin",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    vim.cmd('colorscheme catppuccin-mocha')
+
+    make_bg_transparent()
+  end,
+
+}
+
+
+local tokyonight = {
     "folke/tokyonight.nvim",
     priority = 1000,
     lazy = false,
@@ -34,24 +42,31 @@ return {
         },
       })
 
-      -- Load the colorscheme
       vim.cmd.colorscheme("tokyonight")
 
-      -- Optional: clean up extra background highlights
-      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+      make_bg_transparent()
     end,
   }
 
---return {
---    "tiagovla/tokyodark.nvim",
---    opts = {
---        -- custom options here
---    },
---    config = function(_, opts)
---        require("tokyodark").setup(opts) -- calling setup is optional
---        vim.cmd [[colorscheme tokyodark]]
---    end,
---}
+local tokyodark = {
+    "tiagovla/tokyodark.nvim",
+    opts = {
+        -- custom options here
+    },
+    config = function(_, opts)
+        require("tokyodark").setup(opts) -- calling setup is optional
+        vim.cmd.colorscheme("tokyodark")
 
+        make_bg_transparent()
+    end,
+}
+
+
+local colors = {
+  rosepine = rosepine,
+  catppuccin = catppuccin,
+  tokyonight = tokyonight,
+  tokyodark  = tokyodark,
+}
+
+return colors["tokyonight"]
