@@ -1,21 +1,19 @@
 #!/bin/zsh
 
 main() {
-
-pause=$(dunstctl is-paused)
+  pause=$(dunstctl is-paused)
 
 ## Toggle dunst's state icon
 echo $pause
 
 if [ $pause = "false" ]; then
-  notify-send "🔕 Notifications Paused"
-  sleep 3
-  dunstctl set-paused toggle
+  dunstctl set-paused true
+  polybar-msg hook dnd 2
 elif [ $pause = "true" ]; then
-  dunstctl set-paused toggle
-  dunstctl history-close-all
+  dunstctl set-paused false
+  polybar-msg hook dnd 1
   notify-send "🔔 Notifications Resumed"
 fi
 }
 
- main "$@"
+main "$@"
