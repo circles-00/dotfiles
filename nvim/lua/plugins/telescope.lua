@@ -28,13 +28,25 @@ return {
     telescope.load_extension("git_file_history")
     vim.keymap.set('n', '<leader>gh', telescope.extensions.git_file_history.git_file_history, {})
 
-    vim.keymap.set('n', '<leader>pf', builtin.git_files, {})
-    vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-    vim.keymap.set('n', '<leader>ps', function()
-      builtin.grep_string({ search = vim.fn.input("Grep > ") })
+    vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+    vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+
+    vim.keymap.set('n', '<leader>pa', function()
+      builtin.grep_string({
+        search = vim.fn.input("Grep > "),
+        additional_args = function(args)
+          return vim.list_extend(args, { "--hidden" })
+        end,
+      })
     end)
-    vim.keymap.set('n', "<leader>pa", builtin.live_grep, {})
-    vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
+
+    vim.keymap.set('n', '<leader>ps', function()
+      builtin.live_grep({
+        additional_args = function(args)
+          return vim.list_extend(args, { "--hidden", "--fixed-strings" })
+        end,
+      })
+    end)
 
     vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 

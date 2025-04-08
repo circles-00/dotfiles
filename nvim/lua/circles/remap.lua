@@ -40,24 +40,14 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("n", "<leader>vwm", function()
-  require("vim-with-me").StartVimWithMe()
-end)
-vim.keymap.set("n", "<leader>svwm", function()
-  require("vim-with-me").StopVimWithMe()
-end)
-
 -- greatest remap ever
 vim.keymap.set("x", "<leader>po", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 
-vim.cmd [[ command! Paste execute 'read !xsel -b' ]]
--- vim.keymap.set({ "n", "v" }, "<leader>pp", "<cmd>Paste<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>P", [["+p]])
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
@@ -85,7 +75,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 -- Custom typescript barrel generator script & remap
@@ -93,8 +82,6 @@ vim.keymap.set("n", "<leader>ts", function ()
   local currentDirectoryPath = vim.fn.expand("%:p:h")
   vim.cmd("!node ~/.local/scripts/typescript-barrel-generator.js " .. currentDirectoryPath)
 end)
-
-vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 
 -- buffers
 vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
