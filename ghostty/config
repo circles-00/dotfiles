@@ -19,4 +19,4 @@ gtk-wide-tabs = false
 
 gtk-custom-css = ~/.config/ghostty/gtk.css
 
-keybind = "ctrl+enter=unbind"
+keybind = ctrl+enter=text:\r
