@@ -28,8 +28,12 @@ return {
     telescope.load_extension("git_file_history")
     vim.keymap.set('n', '<leader>gh', telescope.extensions.git_file_history.git_file_history, {})
 
-    vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-    vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+    vim.keymap.set('n', '<leader>pf', builtin.git_files, {})
+    vim.keymap.set('n', '<C-p>', function()
+      builtin.find_files({
+        hidden = true
+      })
+    end, {})
 
     vim.keymap.set('n', '<leader>pa', function()
       builtin.grep_string({
