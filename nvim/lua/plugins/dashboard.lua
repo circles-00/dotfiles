@@ -16,6 +16,7 @@ header = string.rep("\n", 8) .. header .. "\n\n"
 return {
   'nvimdev/dashboard-nvim',
   event = 'VimEnter',
+  commit = "000448d",
   config = function()
     require('dashboard').setup({
       theme = 'doom',

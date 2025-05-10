@@ -268,6 +268,6 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 
 # Startup script
-exec --no-startup-id ~/.config/i3/i3_startup_layout
+#exec --no-startup-id ~/.config/i3/i3_startup_layout
 exec --no-startup-id redshift -O 4750
 

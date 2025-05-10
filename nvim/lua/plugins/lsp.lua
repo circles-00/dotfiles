@@ -79,7 +79,7 @@ return{
       }
     })
 
-    lsp.on_attach(function(_, bufnr)
+    local on_attach = function(_, bufnr)
       local opts = { buffer = bufnr, remap = false }
 
       -- if client.name == "tsserver" then
@@ -96,7 +96,9 @@ return{
       vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
       vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
       vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-    end)
+    end
+
+    lsp.on_attach(on_attach)
 
     lsp.setup()
 
@@ -129,6 +131,7 @@ return{
       capabilities = capabilities,
       on_attach = function (_, bufnr)
         lsp_format_on_save(bufnr)
+        on_attach(_, bufnr)
       end
     })
 
