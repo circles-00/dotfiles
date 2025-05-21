@@ -175,7 +175,7 @@ __conda_setup="$('/home/darknet/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
 export TERM=xterm-256color
-export BROWSER='/snap/bin/brave'
+export BROWSER='/var/lib/flatpak/exports/share/applications/app.zen_browser.zen.desktop'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

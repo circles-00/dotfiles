@@ -271,3 +271,5 @@ exec --no-startup-id xset s off
 exec --no-startup-id ~/.config/i3/i3_startup_layout
 exec --no-startup-id redshift -O 4750
 
+exec --no-startup-id xdg-mime default app.zen_browser.zen.desktop x-scheme-handler/http
+exec --no-startup-id xdg-mime default app.zen_browser.zen.desktop x-scheme-handler/https
