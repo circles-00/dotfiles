@@ -34,6 +34,7 @@ return {
         -- Remove Tab and S-Tab mappings if you don't want them
       }),
       sources = cmp.config.sources({
+        { name = "copilot", priority = 50 },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'buffer' },

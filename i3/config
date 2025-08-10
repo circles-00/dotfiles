@@ -262,6 +262,8 @@ exec --no-startup-id xdg-settings set default-web-browser "chrome.desktop"
 # Swap monitor for active workspace
 bindsym $mod+Ctrl+Up move workspace to output up
 bindsym $mod+Ctrl+Down move workspace to output down
+bindsym $mod+Ctrl+Right move workspace to output right
+bindsym $mod+Ctrl+Left move workspace to output left
 
 # Disable screen saver and screen blanking
 exec --no-startup-id xset -dpms
@@ -273,3 +275,5 @@ exec --no-startup-id redshift -O 4750
 
 exec --no-startup-id xdg-mime default app.zen_browser.zen.desktop x-scheme-handler/http
 exec --no-startup-id xdg-mime default app.zen_browser.zen.desktop x-scheme-handler/https
+
+exec --no-startup-id "~/.config/i3/init-monitors.sh"

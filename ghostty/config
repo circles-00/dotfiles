@@ -22,3 +22,4 @@ gtk-custom-css = ~/.config/ghostty/gtk.css
 keybind = ctrl+enter=text:\r
 
 gtk-single-instance = true
+keybind = shift+enter=text:\n

@@ -89,3 +89,16 @@ vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 vim.keymap.set("n", "<leader>bdd", "<cmd>:bd<cr>", { desc = "Delete Buffer" })
 vim.keymap.set("n", "<leader>bda", "<cmd>:%bd|e#|bd#<cr>", { desc = "Delete All Buffers But This One" })
 
+-- Claude code
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>cc",
+  ":lua os.execute(\"tmux split-window -h -p 35 'zsh -c \\\"source ~/.zshrc && claude\\\"'\")<CR>",
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>cg",
+  ":lua os.execute(\"tmux split-window -h -p 35 'zsh -c \\\"source ~/.zshrc && gemini\\\"'\")<CR>",
+  { noremap = true, silent = true }
+)
