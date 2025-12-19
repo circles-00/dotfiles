@@ -1,6 +1,6 @@
 /*******************************************************************************
- * ROUNDED THEME FOR ROFI 
- * User                 : LR-Tech               
+ * ROUNDED THEME FOR ROFI
+ * User                 : LR-Tech
  * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
  *******************************************************************************/
 
@@ -16,8 +16,8 @@
 }
 
 /*******************************************************************************
- * ROUNDED THEME FOR ROFI 
- * User                 : LR-Tech               
+ * ROUNDED THEME FOR ROFI
+ * User                 : LR-Tech
  * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
  *******************************************************************************/
 
@@ -33,11 +33,11 @@
 }
 
 window {
-    location:       center; 
+    location:       center;
     y-offset: -350px;
     width:          480;
     border-radius:  24px;
-    
+
     background-color:   @bg0;
 }
 

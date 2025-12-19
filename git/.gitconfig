@@ -3,6 +3,7 @@
   name = Nikola Krezeski
 [core]
   editor = nvim
+  excludesfile = ~/.gitignore_global
 [alias]
   aa = add .
   s = status -sb

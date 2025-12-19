@@ -1,12 +1,16 @@
 return {
   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   config = function()
-    require("lsp_lines").setup()
+    local lsp_lines = require("lsp_lines")
+
+    lsp_lines.setup()
+
+    lsp_lines.toggle()
 
     vim.keymap.set(
       "",
       "<Leader>e",
-      require("lsp_lines").toggle,
+      lsp_lines.toggle,
       { desc = "Toggle lsp_lines" }
     )
   end,

@@ -5,27 +5,23 @@ return {
     { "williamboman/mason-lspconfig.nvim" },
   },
   config = function()
-    local lspconfig = require("lspconfig")
-
     require("mason").setup()
+    require("mason-lspconfig").setup()
 
-    local signs = { Error = "E", Warn = "W", Hint = "H", Info = "I" }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-    end
+    -- Use vim.diagnostic.config for signs (replaces vim.fn.sign_define)
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "E",
+          [vim.diagnostic.severity.WARN] = "W",
+          [vim.diagnostic.severity.HINT] = "H",
+          [vim.diagnostic.severity.INFO] = "I",
+        },
+      },
+      virtual_text = false,
+    })
 
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-    local lsp_format_on_save = function(bufnr)
-      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        group = augroup,
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format()
-        end,
-      })
-    end
 
     local set_default_keymaps = function(bufnr)
       local opts = { buffer = bufnr, silent = true }
@@ -37,7 +33,7 @@ return {
       vim.keymap.set('n', 'go', vim.lsp.buf.type_definition, opts)
       vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, opts)
       vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
-      vim.keymap.set({'n', 'x'}, '<F3>', function() vim.lsp.buf.format({async = true}) end, opts)
+      vim.keymap.set({ 'n', 'x' }, '<F3>', function() vim.lsp.buf.format({ async = true }) end, opts)
       vim.keymap.set('n', '<F4>', vim.lsp.buf.code_action, opts)
       vim.keymap.set('n', 'gl', vim.diagnostic.open_float, opts)
     end
@@ -49,53 +45,12 @@ return {
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     local servers = {
-      vtsls = {
-        capabilities = capabilities,
-        filetypes = {
-          "javascript", "javascriptreact", "javascript.jsx",
-          "typescript", "typescriptreact", "typescript.tsx",
-        },
-        settings = {
-          complete_function_calls = true,
-          vtsls = {
-            enableMoveToFileCodeAction = true,
-            autoUseWorkspaceTsdk = true,
-            experimental = {
-              maxInlayHintLength = 30,
-              completion = {
-                enableServerSideFuzzyMatch = true,
-              },
-            },
-          },
-          typescript = {
-            updateImportsOnFileMove = { enabled = "always" },
-            suggest = {
-              completeFunctionCalls = true,
-            },
-            inlayHints = {
-              enumMemberValues = { enabled = true },
-              functionLikeReturnTypes = { enabled = true },
-              parameterNames = { enabled = "literals" },
-              parameterTypes = { enabled = true },
-              propertyDeclarationTypes = { enabled = true },
-              variableTypes = { enabled = false },
-            },
-          },
-        },
-        on_attach = function(client, bufnr)
-          lsp_format_on_save(bufnr)
-          on_attach(client, bufnr)
-          local opts = { buffer = bufnr, silent = true }
-          vim.keymap.set('n', '<leader>cV', function()
-            client.request("workspace/executeCommand", {
-              command = "typescript.selectTypeScriptVersion"
-            })
-          end, opts)
+      tsgo = {
+        on_attach = function(_, bufnr)
+          on_attach(_, bufnr)
         end,
       },
-
-      eslint = {},
-
+      biome = {},
       gopls = {
         capabilities = capabilities,
         settings = {
@@ -129,15 +84,6 @@ return {
           })
         end,
       },
-
-      omnisharp = {
-        cmd = { "/usr/bin/dotnet", vim.fn.expand("~/Downloads/omnisharp-linux-x64-net6.0/OmniSharp.dll") },
-        enable_import_completion = true,
-        organize_imports_on_format = true,
-        capabilities = capabilities,
-        on_attach = on_attach,
-      },
-
       lua_ls = {
         capabilities = capabilities,
         on_attach = on_attach,
@@ -153,18 +99,19 @@ return {
       },
     }
 
+    -- Configure and enable servers
     for server, config in pairs(servers) do
-      lspconfig[server].setup(config)
+      vim.lsp.config(server, config)
+      vim.lsp.enable(server)
     end
 
-    local simple_servers = { "rust_analyzer", "tailwindcss", "pyright", "clangd", "html", "clojure_lsp", "terraformls" }
+    local simple_servers = { "pyright", "html" }
     for _, server in ipairs(simple_servers) do
-      lspconfig[server].setup({
+      vim.lsp.config(server, {
         capabilities = capabilities,
         on_attach = on_attach,
       })
+      vim.lsp.enable(server)
     end
-
-    vim.diagnostic.config({ virtual_text = false })
   end,
 }

@@ -93,12 +93,19 @@ vim.keymap.set("n", "<leader>bda", "<cmd>:%bd|e#|bd#<cr>", { desc = "Delete All 
 vim.api.nvim_set_keymap(
   "n",
   "<leader>cc",
-  ":lua os.execute(\"tmux split-window -h -p 35 'zsh -c \\\"source ~/.zshrc && claude\\\"'\")<CR>",
+  ":lua os.execute(\"tmux split-window -h -p 30 'zsh -c \\\"source ~/.zshrc && claude\\\"'\")<CR>",
   { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
   "n",
   "<leader>cg",
-  ":lua os.execute(\"tmux split-window -h -p 35 'zsh -c \\\"source ~/.zshrc && gemini\\\"'\")<CR>",
+  ":lua os.execute(\"tmux split-window -h -p 30 'zsh -c \\\"source ~/.zshrc && gemini\\\"'\")<CR>",
+  { noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>cs",
+  ":lua os.execute(\"tmux split-window -h -p 30 'zsh -c \\\"source ~/.zshrc && cursor-agent\\\"'\")<CR>",
   { noremap = true, silent = true }
 )
