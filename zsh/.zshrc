@@ -208,6 +208,12 @@ sshf() {
 ## - non-blinking: \e[2 q
 ## - blinking: \e[1 q
 
+
+export ANDROID_HOME=/opt/android-sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_HOME/emulator
+
 # Bar:
 ## - non-blinking: \e[6 q
 ## - blinking: \e[5 q
@@ -215,3 +221,5 @@ if [[ -n "$TMUX" ]]; then
   print -n '\e[5 q'
 fi
 
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"

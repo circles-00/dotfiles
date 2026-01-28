@@ -1,6 +1,6 @@
 #!/bin/bash
 
-THEME="lofi"
+THEME="tokyonight"
 
 # Terminate already running bar instances
 killall polybar

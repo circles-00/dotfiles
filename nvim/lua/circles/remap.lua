@@ -62,8 +62,8 @@ vim.keymap.set("n", "<leader>f", function()
   local currentFileName = vim.fn.expand("%:t")
 
   if currentFileName:sub(-3) == ".ts" or currentFileName:sub(-4) == ".tsx" then
-  vim.cmd("EslintFixAll")
-end
+    vim.cmd("EslintFixAll")
+  end
 end
 )
 
@@ -78,7 +78,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 -- Custom typescript barrel generator script & remap
-vim.keymap.set("n", "<leader>ts", function ()
+vim.keymap.set("n", "<leader>ts", function()
   local currentDirectoryPath = vim.fn.expand("%:p:h")
   vim.cmd("!node ~/.local/scripts/typescript-barrel-generator.js " .. currentDirectoryPath)
 end)
@@ -90,22 +90,15 @@ vim.keymap.set("n", "<leader>bdd", "<cmd>:bd<cr>", { desc = "Delete Buffer" })
 vim.keymap.set("n", "<leader>bda", "<cmd>:%bd|e#|bd#<cr>", { desc = "Delete All Buffers But This One" })
 
 -- Claude code
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>cc",
-  ":lua os.execute(\"tmux split-window -h -p 30 'zsh -c \\\"source ~/.zshrc && claude\\\"'\")<CR>",
-  { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>cg",
-  ":lua os.execute(\"tmux split-window -h -p 30 'zsh -c \\\"source ~/.zshrc && gemini\\\"'\")<CR>",
-  { noremap = true, silent = true }
-)
+vim.keymap.set("n", "<leader>cc", function()
+  os.execute("tmux split-window -h -p 30 'claude'")
+end)
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>cs",
-  ":lua os.execute(\"tmux split-window -h -p 30 'zsh -c \\\"source ~/.zshrc && cursor-agent\\\"'\")<CR>",
-  { noremap = true, silent = true }
-)
+
+vim.keymap.set("n", "<leader>cg", function()
+  os.execute("tmux split-window -h -p 30 'gemini'")
+end)
+
+vim.keymap.set("n", "<leader>cs", function()
+  os.execute("tmux split-window -h -p 30 'cursor-agent'")
+end)

@@ -38,6 +38,18 @@ return {
       vim.keymap.set('n', 'gl', vim.diagnostic.open_float, opts)
     end
 
+    local lsp_format_on_save = function(bufnr)
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          local ok = pcall(vim.cmd, "LspEslintFixAll")
+          if not ok then vim.lsp.buf.format() end
+        end,
+      })
+    end
+
     local on_attach = function(_, bufnr)
       set_default_keymaps(bufnr)
     end
@@ -45,12 +57,13 @@ return {
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     local servers = {
-      tsgo = {
+      ts_ls = {
         on_attach = function(_, bufnr)
           on_attach(_, bufnr)
+          lsp_format_on_save(bufnr)
         end,
       },
-      biome = {},
+      eslint = {},
       gopls = {
         capabilities = capabilities,
         settings = {
