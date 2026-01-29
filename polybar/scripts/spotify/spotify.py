@@ -116,16 +116,22 @@ def get_play_pause_icon():
     else:
         return "󰐊 "  # play icon
 
+def noop():
+    pass
+
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        action = sys.argv[1]
-        if action == "play_pause":
-            play_pause()
-        elif action == "next":
-            next_track()
-        elif action == "play_pause_icon":
-            print(get_play_pause_icon())
-        elif action == "previous":
-            previous_track()
-    else:
-        print(get_current_track())
+    try:
+        if len(sys.argv) > 1:
+            action = sys.argv[1]
+            if action == "play_pause":
+                play_pause()
+            elif action == "next":
+                next_track()
+            elif action == "play_pause_icon":
+                print(get_play_pause_icon())
+            elif action == "previous":
+                previous_track()
+        else:
+            print(get_current_track())
+    except Exception as e:
+        noop()
